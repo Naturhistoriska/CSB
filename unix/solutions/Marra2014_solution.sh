@@ -20,7 +20,7 @@ cd ~/CSB/unix/sandbox
 
 ls -lh ../data/Marra2014_data.fasta
 
-# This should return 533K
+# This should return 553K
 
 # Alternatively, the command du (disk usage) can
 # be used for a more compact output:

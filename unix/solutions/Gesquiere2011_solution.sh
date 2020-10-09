@@ -74,17 +74,17 @@ tail -n +2 ../data/Gesquiere2011_data.csv | cut -f 1 | sort -n | uniq
 # 4
 # ...
 
-# To store this list in a script, you can use
+# To store this list in a variable, you can use
 
-myIDS=`tail -n +2 ../data/Gesquiere2011_data.csv | cut -f 1 | sort -n | uniq`
+myIDS=$(tail -n +2 ../data/Gesquiere2011_data.csv | cut -f 1 | sort -n | uniq)
 
 # And now use a "loop" to cycle through all
 # IDs:
 
 for id in $myIDS
 do
-    mycounts=`bash count_baboons.sh ../data/Gesquiere2011_data.csv $id`
-    echo "ID:" $id "counts:" $mycounts
+    mycounts=$(bash count_baboons.sh ../data/Gesquiere2011_data.csv "$id")
+    echo "ID:" "$id" "counts:" "$mycounts"
 done 
 
 # The file count_all_baboons.sh shows the complete

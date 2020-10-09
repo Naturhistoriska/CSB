@@ -8,9 +8,9 @@
 #!/bin/bash
 
 # to store the results of a command into a variable,
-# surround the command with backticks (`)
-myfiles=`ls`
-for myfile in $myIDS
+# surround the command with $()
+myfiles=$(find . -type f)
+for myfile in $myfiles
 do
     echo $myfile
 done
