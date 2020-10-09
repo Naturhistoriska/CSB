@@ -59,7 +59,8 @@ head -n 1 ../data/Saavedra2013/n10.txt | tr -d ' ' | tr -d '\n' | wc -c
 
 # In a script, if you write:
 
-FILES=../data/Saavedra2013/*.txt
+#FILES=../data/Saavedra2013/*.txt
+FILES=$(find ../data/Saavedra2013 -type f -name '*.txt')
 
 # You create a list of all the .txt files in the
 # "variable" FILES. You can then iterate through
@@ -69,7 +70,7 @@ FILES=../data/Saavedra2013/*.txt
 
 for f in $FILES
 do
-    echo $f
+    echo "$f"
 done
 
 # would print the file names in the directory.
@@ -80,13 +81,10 @@ done
 
 for f in $FILES
 do
-    myrow=`cat $f | wc -l`
-    echo $f $myrow
+    myrow=$(wc -l < $f)
+    echo "$f" "$myrow"
 done
 
-# Note the use of backticks `: the syntax of bash is
-# very finnicky, and you need to write the commands
-# exactly as above.
 
 # This script prints the file name as well as
 # the number of rows. Using these concepts, you can
